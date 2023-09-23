@@ -15,26 +15,16 @@ void main() {
   runApp(const MyApp());
 }
 
-void test() {
-  // final names = ['Julian', 'Xia', 'Kevin', 'Lucy'];
-  // final father = names[2];
-  // final length = names.length;
-  // print('$father $length');
-  // var names = {'julian', 'kevin', 'cacy', 1};
-  // names.add('ok');
-  // names.add('ok1');
-  // names.add('ok2');
+class Person {
+  final String name;
 
-  // var length = names.length;
-  // print(length);
-  // print(names);
-
-  // var person = {'age': 33, 'name': 'Julian'};
-
-  // print(person);
-  // person['age'] = 20;
-  // print(person);
+  Person(this.name);
+  void printName() {
+    print(name);
+  }
 }
+
+void test(List<String>? name1) {}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -44,7 +34,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // print(getFullName('Julian', 'Huang'));
     //print(printName('Xia', 'Huang'));
-    test();
+    test(['ko']);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
