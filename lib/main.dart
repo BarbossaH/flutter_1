@@ -1,7 +1,39 @@
 import 'package:flutter/material.dart';
 
+String getFullName(String firstName, String lastName) {
+  var wholeName = firstName * 2;
+  const ko = 3;
+  const cosName = ko * 2;
+  return '$firstName  $lastName $wholeName $cosName\' my whole name';
+}
+
+String printName(String firstName, String lastName) =>
+    '$firstName  $lastName is \' my whole name';
 void main() {
+  // const name = "Julian";
+  // final name = "Julian";
   runApp(const MyApp());
+}
+
+void test() {
+  // final names = ['Julian', 'Xia', 'Kevin', 'Lucy'];
+  // final father = names[2];
+  // final length = names.length;
+  // print('$father $length');
+  // var names = {'julian', 'kevin', 'cacy', 1};
+  // names.add('ok');
+  // names.add('ok1');
+  // names.add('ok2');
+
+  // var length = names.length;
+  // print(length);
+  // print(names);
+
+  // var person = {'age': 33, 'name': 'Julian'};
+
+  // print(person);
+  // person['age'] = 20;
+  // print(person);
 }
 
 class MyApp extends StatelessWidget {
@@ -10,6 +42,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // print(getFullName('Julian', 'Huang'));
+    //print(printName('Xia', 'Huang'));
+    test();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
