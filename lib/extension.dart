@@ -1,10 +1,48 @@
 import 'package:flutter/material.dart';
 
+String getFullName(String firstName, String lastName) {
+  var wholeName = firstName * 2;
+  const ko = 3;
+  const cosName = ko * 2;
+  return '$firstName  $lastName $wholeName $cosName\' my whole name';
+}
+
+String printName(String firstName, String lastName) =>
+    '$firstName  $lastName is \' my whole name';
 void main() {
+  // const name = "Julian";
+  // final name = "Julian";
   runApp(const MyApp());
 }
 
-void test() async {}
+class Cat {
+  final String name;
+  Cat(this.name);
+}
+
+extension Run on Cat {
+  void run() {
+    print("Cat $name is running");
+  }
+}
+
+void test() {
+  final meov = Cat("Jul");
+  meov.run();
+
+  final p = Person('firstName', 'lastName');
+  print(p.fullName);
+}
+
+class Person {
+  final String firstName;
+  final String lastName;
+  Person(this.firstName, this.lastName);
+}
+
+extension FullName on Person {
+  String get fullName => '$firstName $lastName';
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,6 +50,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // print(getFullName('Julian', 'Huang'));
+    //print(printName('Xia', 'Huang'));
     test();
     return MaterialApp(
       title: 'Flutter Demo',

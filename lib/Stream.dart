@@ -4,7 +4,26 @@ void main() {
   runApp(const MyApp());
 }
 
-void test() async {}
+Stream<String> getName() {
+  return Stream.periodic(const Duration(seconds: 1), (value) {
+    return "Julian";
+  });
+}
+
+void test() async {
+  // await for (final value in getName()) {
+  //   print(value);
+  // }
+  final nameStream = getName();
+  final sub = nameStream.listen((name) {
+    print('$name');
+  });
+
+  Future.delayed(const Duration(seconds: 5), () {
+    sub.cancel(); // This stops listening to the stream.
+    print('Subscription canceled. Stream will stop emitting.');
+  });
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,6 +31,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // print(getFullName('Julian', 'Huang'));
+    //print(printName('Xia', 'Huang'));
     test();
     return MaterialApp(
       title: 'Flutter Demo',

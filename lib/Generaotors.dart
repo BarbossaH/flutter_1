@@ -4,7 +4,18 @@ void main() {
   runApp(const MyApp());
 }
 
-void test() async {}
+Iterable<int> getOne() sync* {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+void test() async {
+  for (final value in getOne()) {
+    print(value);
+    if (value == 2) break;
+  }
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

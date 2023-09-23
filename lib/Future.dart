@@ -4,7 +4,16 @@ void main() {
   runApp(const MyApp());
 }
 
-void test() async {}
+Future<int> heavyFutureThatMultipliesByTwo(int a) {
+  return Future.delayed(const Duration(seconds: 3), () => a * 2);
+}
+
+void test() async {
+  final a = heavyFutureThatMultipliesByTwo(3);
+  print(a);
+  final b = await heavyFutureThatMultipliesByTwo(5);
+  print(b);
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,6 +21,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // print(getFullName('Julian', 'Huang'));
+    //print(printName('Xia', 'Huang'));
     test();
     return MaterialApp(
       title: 'Flutter Demo',
