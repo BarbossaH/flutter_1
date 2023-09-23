@@ -15,16 +15,25 @@ void main() {
   runApp(const MyApp());
 }
 
-class Person {
+class Cat {
   final String name;
-
-  Person(this.name);
-  void printName() {
-    print(name);
+  Cat(this.name);
+  factory Cat.fluffBall() {
+    return Cat('Julian');
   }
+
+  @override
+  bool operator ==(covariant Cat other) => other.name == name;
+
+  @override
+  int get hashCode => name.hashCode;
 }
 
-void test(List<String>? name1) {}
+void test() {
+  final flu = Cat("Julian");
+  final flu1 = Cat.fluffBall();
+  print(flu == flu1);
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -34,7 +43,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // print(getFullName('Julian', 'Huang'));
     //print(printName('Xia', 'Huang'));
-    test(['ko']);
+    test();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
